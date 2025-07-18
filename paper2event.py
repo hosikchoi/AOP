@@ -57,3 +57,52 @@ Text:
     except Exception as e:
         print("Error parsing response:", e)
         return None
+
+# (3) 예시 실행
+
+text = """
+Pycnogenol treatment reduced PHMG-induced TGF-β1 expression, inhibited fibronectin accumulation,
+and mitigated the progression of lung fibrosis in mouse models.
+"""
+
+events = extract_aop_events(text)
+for e in events:
+    print(f"{e['type']}: {e['event']} – {e['reason']}")
+
+# 출력 예시
+
+[
+  {
+    "event": "TGF-β1 expression",
+    "type": "KE",
+    "reason": "Cytokine mediating fibrogenic signaling"
+  },
+  {
+    "event": "fibronectin accumulation",
+    "type": "KE",
+    "reason": "ECM component buildup linked to fibrosis"
+  },
+  {
+    "event": "lung fibrosis",
+    "type": "AO",
+    "reason": "Adverse pathological outcome in lung"
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
