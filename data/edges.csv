@@ -1,0 +1,6 @@
+source,target,weight
+n1,n2,0.85
+n2,n3,0.75
+n3,n4,0.90
+n1,n3,0.50
+n2,n4,0.40
