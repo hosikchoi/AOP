@@ -54,4 +54,19 @@ Answer in this format only: "Yes, plausibility: 0.78" or "No, plausibility: 0.00
     score = float(answer.split("plausibility:")[1].strip())
     return score
 
+relations = []
+for src, tgt in itertools.permutations(events.keys(), 2):
+    src_sent, tgt_sent = events[src], events[tgt]
+    weight = score_relation(src_sent, tgt_sent)
+    if weight > 0.5:
+        relations.append((src, tgt, weight))
+
+edges_llm = pd.DataFrame(relations, columns=["source", "target", "weight"])
+edges_llm.to_csv("edges_llm.csv", index=False)
+
+
+
+
+
+
 
